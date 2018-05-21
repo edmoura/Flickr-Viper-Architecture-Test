@@ -15,6 +15,9 @@ protocol PhotoViewControllerOutput {
 protocol PhotoViewControllerInput {
     func displayFetchedPhotos(_ photos:[FlickrPhotoModel], totalPages: NSInteger)
     func displayErrorView(_ errorMessage:String)
+    func showWaitingView()
+    func hideWaitingView()
+    func getTotalPhotoCount() -> NSInteger
 }
 
 class PhotoViewController:UIViewController, PhotoViewControllerInput {
@@ -65,6 +68,29 @@ class PhotoViewController:UIViewController, PhotoViewControllerInput {
         }))
         
         present(refreshAlert, animated: true, completion: nil)
+    }
+    
+    // MARK:- ActivityView
+    func showWaitingView() {
+        let alert = UIAlertController(title: nil, message: waitingKey, preferredStyle: .alert)
+        alert.view.tintColor = UIColor.black
+        
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50)) as UIActivityIndicatorView
+        
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.activityIndicatorViewStyle = .gray
+        loadingIndicator.startAnimating()
+        
+        alert.view.addSubview(loadingIndicator)
+        self.navigationController?.present(alert, animated: true, completion: nil)
+    }
+    
+    func hideWaitingView(){
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func getTotalPhotoCount() -> NSInteger {
+        return self.photos.count
     }
     
     override func didReceiveMemoryWarning() {

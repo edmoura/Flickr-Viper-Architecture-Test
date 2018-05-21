@@ -19,11 +19,17 @@ class PhotoSearchPresenter:PhotoSearchPresenterInput {
     
     //Presenter says interactor ViewController needs photos
     func fetchPhotos(_ searchTag:String , page: NSInteger) {
+        
+        if view.getTotalPhotoCount() == 0 {
+            view.showWaitingView()
+        }
+        
         interactor.fetchAllPhotosFromDataManager(searchTag, page: page)
     }
     
     //Service return photos and interactor passes all data to presenter which make view display them
     func providePhotos(_ photos:[FlickrPhotoModel], totalPages:NSInteger){
+        self.view.hideWaitingView()
         self.view.displayFetchedPhotos(photos, totalPages: totalPages)
     }
     
