@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 protocol PhotoDetailViewControllerInput:class {
     func addLargeLoadedPhoto(_ url:NSURL)
@@ -20,9 +21,10 @@ protocol PhotoDetailViewControllerOutput:class {
 }
 
 class PhotoDetailViewController: UIViewController, PhotoDetailViewControllerInput {
-
+    
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var photoTitleLabel: UILabel!
+    @IBOutlet weak var activityLoader: UIActivityIndicatorView!
     
     var presenter:PhotoDetailViewControllerOutput!
     
@@ -41,16 +43,22 @@ class PhotoDetailViewController: UIViewController, PhotoDetailViewControllerInpu
     
     //result comes from presenter
     func addLargeLoadedPhoto(_ url:NSURL) {
-        //self.photoImageView.image = photo
-        print("addLargeLoadedPhoto: \(url)")
+        self.photoImageView.alpha = 0;
+        self.photoImageView.sd_setImage(with: url as URL) { (image, error, cache, withUrl) in
+            self.photoImageView.image = image
+            self.activityLoader.stopAnimating()
+            UIView.animate(withDuration: 0.2, animations: {
+                self.photoImageView.alpha = 1.0
+            })
+        }
     }
     
     func addPhotoImageTitle(_ title: String) {
         self.photoTitleLabel.text = title.capitalized
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
+    
 }

@@ -122,9 +122,14 @@
                                     <constraint firstItem="hl4-Pg-a4K" firstAttribute="leading" secondItem="2dv-2Z-rws" secondAttribute="leading" constant="20" id="kMz-Bz-gnI"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="tTI-Nc-554">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="tTI-Nc-554" firstAttribute="centerY" secondItem="ugP-VV-DPM" secondAttribute="centerY" id="01J-5w-YWm"/>
                             <constraint firstItem="2dv-2Z-rws" firstAttribute="trailing" secondItem="fyf-8p-fcr" secondAttribute="trailing" id="NXe-6o-Kmk"/>
                             <constraint firstItem="fdN-hI-wPf" firstAttribute="leading" secondItem="fyf-8p-fcr" secondAttribute="leading" id="Pyb-KH-6o4"/>
                             <constraint firstItem="2dv-2Z-rws" firstAttribute="bottom" secondItem="fyf-8p-fcr" secondAttribute="bottom" id="RnA-Gz-krY"/>
@@ -132,10 +137,12 @@
                             <constraint firstItem="2dv-2Z-rws" firstAttribute="leading" secondItem="fyf-8p-fcr" secondAttribute="leading" id="cd0-Wp-xwW"/>
                             <constraint firstItem="fyf-8p-fcr" firstAttribute="bottom" secondItem="fdN-hI-wPf" secondAttribute="bottom" id="idd-md-BdX"/>
                             <constraint firstItem="fyf-8p-fcr" firstAttribute="trailing" secondItem="fdN-hI-wPf" secondAttribute="trailing" id="wdT-ng-L6E"/>
+                            <constraint firstItem="tTI-Nc-554" firstAttribute="centerX" secondItem="ugP-VV-DPM" secondAttribute="centerX" id="zwR-vg-jqt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fyf-8p-fcr"/>
                     </view>
                     <connections>
+                        <outlet property="activityLoader" destination="tTI-Nc-554" id="uvc-X8-YxW"/>
                         <outlet property="photoImageView" destination="fdN-hI-wPf" id="ovL-8U-2mr"/>
                         <outlet property="photoTitleLabel" destination="hl4-Pg-a4K" id="mNC-5Y-E6X"/>
                     </connections>
