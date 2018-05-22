@@ -17,7 +17,10 @@ class PhotoSearchAssembly {
         let APIDataManager = FlickrDataManager()
         let interactor = PhotoSearchInteractor()
         let presenter = PhotoSearchPresenter()
+        let router = PhotoSearchRouting()
         
+        router.viewController = viewController
+        presenter.router = router
         viewController.presenter = presenter
         presenter.view = viewController
         interactor.presenter = presenter

@@ -9,7 +9,9 @@
 import UIKit
 
 protocol PhotoViewControllerOutput {
-   func fetchPhotos(_ searchTag:String , page: NSInteger)
+    func fetchPhotos(_ searchTag:String , page: NSInteger)
+    func gotoPhotoDetailScreen()
+    func passDataToNextScene(_ segue:UIStoryboardSegue)
 }
 
 protocol PhotoViewControllerInput {
@@ -93,11 +95,15 @@ class PhotoViewController:UIViewController, PhotoViewControllerInput {
         return self.photos.count
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        presenter.passDataToNextScene(segue)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
 }
 
 // MARK:- UICollectionViewDataSource
@@ -153,7 +159,7 @@ extension PhotoViewController: UICollectionViewDataSource {
 // MARK:- UICollectionViewDelegate
 extension PhotoViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        self.presenter.gotoPhotoDetailScreen()
     }
 }
 

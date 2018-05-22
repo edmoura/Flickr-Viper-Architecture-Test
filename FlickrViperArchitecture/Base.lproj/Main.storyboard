@@ -86,17 +86,17 @@
                     <navigationItem key="navigationItem" id="e0X-RU-1M9"/>
                     <connections>
                         <outlet property="photoCollectionView" destination="Rbj-GB-X4i" id="a7J-xs-PU9"/>
-                        <segue destination="uQg-NT-MBG" kind="show" identifier="ShowDetailVC" id="bS5-8n-Kdy"/>
+                        <segue destination="uQg-NT-MBG" kind="show" identifier="ShowPhotoDetail" id="bS5-8n-Kdy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="826" y="-564"/>
         </scene>
-        <!--View Controller-->
+        <!--Photo Detail View Controller-->
         <scene sceneID="Se7-ot-NlW">
             <objects>
-                <viewController id="uQg-NT-MBG" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="uQg-NT-MBG" customClass="PhotoDetailViewController" customModule="FlickrViperArchitecture" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ugP-VV-DPM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -105,22 +105,21 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2dv-2Z-rws">
-                                <rect key="frame" x="0.0" y="557" width="375" height="110"/>
+                                <rect key="frame" x="0.0" y="604" width="375" height="63"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name photo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hl4-Pg-a4K">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
-                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="25"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name photo" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hl4-Pg-a4K">
+                                        <rect key="frame" x="20" y="20" width="335" height="23"/>
+                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="hl4-Pg-a4K" secondAttribute="trailing" id="1vq-3U-x1A"/>
-                                    <constraint firstAttribute="bottom" secondItem="hl4-Pg-a4K" secondAttribute="bottom" id="Ua9-pj-jie"/>
-                                    <constraint firstItem="hl4-Pg-a4K" firstAttribute="top" secondItem="2dv-2Z-rws" secondAttribute="top" id="fQY-yg-7SH"/>
-                                    <constraint firstItem="hl4-Pg-a4K" firstAttribute="leading" secondItem="2dv-2Z-rws" secondAttribute="leading" id="kMz-Bz-gnI"/>
-                                    <constraint firstAttribute="height" constant="110" id="ml9-SR-9NP"/>
+                                    <constraint firstAttribute="trailing" secondItem="hl4-Pg-a4K" secondAttribute="trailing" constant="20" id="1vq-3U-x1A"/>
+                                    <constraint firstAttribute="bottom" secondItem="hl4-Pg-a4K" secondAttribute="bottom" constant="20" id="Ua9-pj-jie"/>
+                                    <constraint firstItem="hl4-Pg-a4K" firstAttribute="top" secondItem="2dv-2Z-rws" secondAttribute="top" constant="20" id="fQY-yg-7SH"/>
+                                    <constraint firstItem="hl4-Pg-a4K" firstAttribute="leading" secondItem="2dv-2Z-rws" secondAttribute="leading" constant="20" id="kMz-Bz-gnI"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -136,6 +135,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fyf-8p-fcr"/>
                     </view>
+                    <connections>
+                        <outlet property="photoImageView" destination="fdN-hI-wPf" id="ovL-8U-2mr"/>
+                        <outlet property="photoTitleLabel" destination="hl4-Pg-a4K" id="mNC-5Y-E6X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bCn-sh-A0P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

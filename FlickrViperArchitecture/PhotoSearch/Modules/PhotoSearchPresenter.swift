@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol PhotoSearchPresenterInput: PhotoViewControllerOutput, PhotoSearchInteractorOutput {
     
@@ -16,6 +17,7 @@ class PhotoSearchPresenter:PhotoSearchPresenterInput {
     
     var view:PhotoViewControllerInput!
     var interactor: PhotoSearchInteractorInput!
+    var router: PhotoSearchRouterInput!
     
     //Presenter says interactor ViewController needs photos
     func fetchPhotos(_ searchTag:String , page: NSInteger) {
@@ -36,6 +38,14 @@ class PhotoSearchPresenter:PhotoSearchPresenterInput {
     //Show error message from service
     func serviceError(_ error: NSError){
         self.view.displayErrorView(defaultErrorMessage)
+    }
+    
+    func gotoPhotoDetailScreen() {
+        self.router.navigateToPhotoDetail()
+    }
+    
+    func passDataToNextScene(_ segue: UIStoryboardSegue) {
+        self.router.passDataToNextScene(segue)
     }
     
 }

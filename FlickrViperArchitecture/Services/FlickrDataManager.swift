@@ -97,10 +97,12 @@ class FlickrDataManager:FlickrPhotoSearchProtocol, FlickrPhotoLoadImageProtocol 
     
     // Memory cache photo service
     func loadImageFromUrl(_ url:NSURL, closure:@escaping (UIImage?, NSError?) -> Void) {
-        SDWebImageManager.shared().loadImage(with: url as URL?, options: .cacheMemoryOnly, progress: nil) { (image, data, error, cache, finished, withUrl) in
+        print("loadImageFromUrl:\(url)")
+        
+        /*SDWebImageManager.shared().loadImage(with: url as URL?, options: .cacheMemoryOnly, progress: nil) { (image, data, error, cache, finished, withUrl) in
             if((image != nil) && finished) {
                 closure(image, error! as NSError)
             }
-        }
+        }*/
     }
 }

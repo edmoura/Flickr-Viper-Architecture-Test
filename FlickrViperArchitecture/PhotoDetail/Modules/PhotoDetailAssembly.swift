@@ -6,4 +6,25 @@
 //  Copyright © 2018 Edson Moura. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class PhotoDetailAssembly {
+    
+    static let sharedInstance = PhotoDetailAssembly()
+    
+    func configure(_ viewController:PhotoDetailViewController) {
+        
+        let APIDataManager:FlickrPhotoLoadImageProtocol = FlickrDataManager()
+        let interactor = PhotoDetailInteractor();
+        let presenter = PhotoDetailPresenter()
+        
+        viewController.presenter = presenter
+        presenter.view = viewController
+        interactor.presenter = presenter
+        presenter.interactor = interactor
+        
+        interactor.imageDataManager = APIDataManager
+    
+    }
+    
+}

@@ -8,7 +8,7 @@
 
 import Foundation
 
-let photoSearchKey = "Nature"
+let photoSearchKey = "Exotic"
 let errorTitle = "Error service"
 let errorMessage = "We have a some problem!"
 let OkKey = "OK"
