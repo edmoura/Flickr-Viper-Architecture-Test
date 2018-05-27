@@ -15,4 +15,4 @@ This project uses [Bundler](http://bundler.io) and [CocoaPods](https://cocoapods
 * FlickrApiKey: use your own;
 * FlickrSecretKey: use your own;
 
-Feel free to download, to change, to learn, do every you like =)
+Feel free to download, to change, to learn, do as you wish =)

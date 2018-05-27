@@ -8,6 +8,7 @@
 
 import Foundation
 import SDWebImage
+import Keys
 
 protocol FlickrPhotoSearchProtocol: class {
      func fetchPhotosForSearchText(searchText:String, page:NSInteger, clousure:@escaping (NSError?, NSInteger, [FlickrPhotoModel]?) -> Void) -> Void
@@ -28,8 +29,9 @@ class FlickrDataManager:FlickrPhotoSearchProtocol, FlickrPhotoLoadImageProtocol 
     }
     
     struct FlickrAPI {
-        static let APIKEY = "d2ab34750d504d4eb9b768ef73aeffce"
-        static let secret = "4753b3077ec3e62e"
+        fileprivate static let keys = FlickrViperArchitectureKeys()
+        static let APIKEY = keys.flickrApiKey
+        static let secret = keys.flickrSecretKey
         static let tagsSearchFormat = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=%@&tags=%@+&page=%i&format=json&nojsoncallback=1"
     }
     

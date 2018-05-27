@@ -1,18 +1,25 @@
 PODS:
+  - Keys (1.0.1)
   - SDWebImage (4.3.3):
     - SDWebImage/Core (= 4.3.3)
   - SDWebImage/Core (4.3.3)
 
 DEPENDENCIES:
+  - Keys (from `Pods/CocoaPodsKeys`)
   - SDWebImage
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - SDWebImage
 
+EXTERNAL SOURCES:
+  Keys:
+    :path: Pods/CocoaPodsKeys
+
 SPEC CHECKSUMS:
+  Keys: a576f4c9c1c641ca913a959a9c62ed3f215a8de9
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
 
-PODFILE CHECKSUM: f0345b7a7ab7503ebeebb9c082c00c054393dca8
+PODFILE CHECKSUM: 0b76d3ed38dbb033f9566936d5f709d5250bb135
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.5.3

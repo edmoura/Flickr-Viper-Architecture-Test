@@ -9,8 +9,8 @@
 import Foundation
 
 let photoSearchKey = "Nature"
-let errorTitle = "Error service"
+let errorTitle = "Error service..."
 let errorMessage = "We have a some problem!"
 let OkKey = "OK"
-let defaultErrorMessage = "Some Error"
+let defaultErrorMessage = "Error..."
 let waitingKey = "Please waiting..."
